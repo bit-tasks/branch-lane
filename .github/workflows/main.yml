@@ -29,7 +29,7 @@ jobs:
       - name: Bit Lanes
         run: cd test-data && bit lane list --details
       - name: Commit Bitmap
-        uses: bit-tasks/commit-bitmap@main
+        uses: bit-tasks/commit-bitmap@v1
         with:
             git-user-name: 'ashanfernando'
             git-user-email: 'ashan256@gmail.com'
