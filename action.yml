@@ -1,0 +1,12 @@
+name: 'Bit Branch Lane'
+description: 'Create a new Bit lane for each new Git branch'
+branding: 
+  icon: 'git-branch'
+  color: 'purple'
+inputs:
+  ws-dir:
+    description: "Workspace json file directory path"
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
