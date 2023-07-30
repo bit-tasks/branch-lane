@@ -13,7 +13,7 @@ This task creates a Bit lane for each Git Branch. As the next step in your pipel
 
 ## Example usage
 
-**Note:** Use `bit-task/init@v1` as a prior step in your action before running this task. As the next step in your pipeline, use the `bit-tasks/commit-bitmap@v1` to update the `.Bitmap` file.
+**Note:** Use `bit-task/init@v1` as a prior step in your pipeline before running `bit-tasks/branch-lane@v1`. As the next step, use the `bit-tasks/commit-bitmap@v1` to update the `.Bitmap` file.
 
 ```yaml
 name: Test Bit Branch Lane
@@ -27,8 +27,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_CONFIG_USER_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+      GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+      BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_CONFIG_USER_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
