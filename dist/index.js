@@ -4011,7 +4011,7 @@ const run = (laneName, wsdir) => __awaiter(void 0, void 0, void 0, function* () 
     }
     yield (0, exec_1.exec)("bit status --strict", [], { cwd: wsdir });
     yield (0, exec_1.exec)(`bit lane create ${laneName}`, [], { cwd: wsdir });
-    yield (0, exec_1.exec)('bit snap -m "CI"', [], { cwd: wsdir });
+    yield (0, exec_1.exec)('bit snap -m "CI" --build', [], { cwd: wsdir });
     yield (0, exec_1.exec)("bit export", [], { cwd: wsdir });
 });
 exports["default"] = run;

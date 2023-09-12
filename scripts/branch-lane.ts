@@ -18,7 +18,7 @@ const run = async (laneName: string, wsdir: string) => {
 
   await exec("bit status --strict", [], { cwd: wsdir });
   await exec(`bit lane create ${laneName}`, [], { cwd: wsdir });
-  await exec('bit snap -m "CI"', [], { cwd: wsdir });
+  await exec('bit snap -m "CI" --build', [], { cwd: wsdir });
   await exec("bit export", [], { cwd: wsdir });
 };
 
