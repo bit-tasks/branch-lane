@@ -3970,10 +3970,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const branch_lane_1 = __importDefault(__nccwpck_require__(240));
 try {
-    const wsDir = core.getInput("ws-dir") || process.env.WSDIR || "./";
-    const branchName = (_a = process.env.GITHUB_REF) === null || _a === void 0 ? void 0 : _a.split("/").slice(-1)[0];
+    const wsDir = process.env.WSDIR;
+    const branchName = (_a = process.env.GITHUB_REF) === null || _a === void 0 ? void 0 : _a.split('/').slice(-1)[0];
     if (!branchName) {
-        throw new Error("Branch name is not found");
+        throw new Error('Branch name is not found');
     }
     (0, branch_lane_1.default)(branchName, wsDir);
 }
@@ -4000,10 +4000,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const exec_1 = __nccwpck_require__(514);
+/**
+ *
+ */
 const run = (laneName, wsdir) => __awaiter(void 0, void 0, void 0, function* () {
     const org = process.env.ORG;
     const scope = process.env.SCOPE;
-    yield (0, exec_1.exec)("bit status --strict", [], { cwd: wsdir });
+    yield (0, exec_1.exec)('bit status --strict', [], { cwd: wsdir });
     yield (0, exec_1.exec)(`bit lane create ${laneName}`, [], { cwd: wsdir });
     yield (0, exec_1.exec)('bit snap -m "CI" --build', [], { cwd: wsdir });
     try {
@@ -4012,7 +4015,7 @@ const run = (laneName, wsdir) => __awaiter(void 0, void 0, void 0, function* () 
     catch (error) {
         console.log(`Cannot remove bit lane: ${error}. Lane may not exist`);
     }
-    yield (0, exec_1.exec)("bit export", [], { cwd: wsdir });
+    yield (0, exec_1.exec)('bit export', [], { cwd: wsdir });
 });
 exports["default"] = run;
 
