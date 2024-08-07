@@ -11,6 +11,8 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       BIT_CONFIG_ACCESS_TOKEN: ${{ secrets.BIT_CONFIG_ACCESS_TOKEN }}
+      GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
+      GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,7 +32,4 @@ jobs:
         run: cd test-data && bit lane list --details
       - name: Commit Bitmap
         uses: bit-tasks/commit-bitmap@v1
-        with:
-            git-user-name: 'ashanfernando'
-            git-user-email: 'ashan256@gmail.com'
           
